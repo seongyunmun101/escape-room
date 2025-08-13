@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>교실 방탈출 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- 클릭 가능한 오브젝트 영역 -->
+        <div id="clock-area" class="clickable-area" title="시계"></div>
+        <div id="computer-area" class="clickable-area" title="컴퓨터"></div>
+        <div id="chalkboard-area" class="clickable-area" title="칠판"></div>
+        <div id="desk-area" class="clickable-area" title="책상"></div>
+        <div id="door-area" class="clickable-area" title="문"></div>
+    </div>
+
+    <!-- 어두운 배경 오버레이 -->
+    <div id="overlay" class="hidden"></div>
+
+    <!-- 시계 모달 -->
+    <div id="clock-modal" class="modal hidden">
+        <button class="close-btn">&times;</button>
+        <h2>시계 퀴즈</h2>
+        <p>"나는 얼굴은 있지만 눈은 없고,<br>손은 있지만 팔은 없어.<br>나는 무엇일까?"</p>
+        <input type="text" id="clock-answer" placeholder="정답을 입력하세요">
+        <button id="clock-submit">확인</button>
+        <p id="clock-hint" class="hint hidden">
+            <strong>[첫 번째 힌트]</strong><br>
+            비밀번호의 첫 두 자리는<br>우리나라가 일제로부터 해방된 '달(月)'과 관련이 깊습니다.
+        </p>
+    </div>
+
+    <!-- 컴퓨터 모달 -->
+    <div id="computer-modal" class="modal hidden">
+        <button class="close-btn">&times;</button>
+        <h2>컴퓨터 퀴즈</h2>
+        <p>영상 촬영에 자주 사용되는 이 '초록색' 화면을 '크로마키'라고 부릅니다.<br><br>
+        '크로마키'를 영어로 적고, 알파벳 개수를 세어보세요. (소문자)</p>
+        <input type="number" id="computer-answer" placeholder="알파벳 개수">
+        <button id="computer-submit">확인</button>
+        <p id="computer-hint" class="hint hidden">
+            <strong>[두 번째 힌트]</strong><br>
+            비밀번호의 마지막 두 자리는<br>우리나라가 해방된 '날(日)'과 관련이 깊습니다.
+        </p>
+    </div>
+
+    <!-- 칠판 모달 -->
+    <div id="chalkboard-modal" class="modal hidden">
+        <button class="close-btn">&times;</button>
+        <h2>칠판 퀴즈</h2>
+        <p>칠판에 수학 문제가 적혀있다.<br><br>
+        (교실 안 스피커 개수 × 창문 개수) + 5 = ?
+        </p>
+        <p class="small-text">* 스피커는 검은색, 흰색 모두 포함<br>* 창문은 큰 틀 하나로 계산</p>
+        <input type="number" id="chalkboard-answer" placeholder="계산 결과">
+        <button id="chalkboard-submit">확인</button>
+        <p id="chalkboard-hint" class="hint hidden">
+           "정답입니다. 계속해서 단서를 찾아보세요!"
+        </p>
+    </div>
+
+    <!-- 책상 모달 -->
+    <div id="desk-modal" class="modal hidden">
+        <button class="close-btn">&times;</button>
+        <h2>총알 피하기 게임</h2>
+        <p>방향키(←,→,↑,↓)로 캐릭터를 움직여 15초 동안 총알을 피하세요!</p>
+        <canvas id="bullet-canvas" width="320" height="320" style="background:#222;border-radius:8px;margin:10px 0;"></canvas>
+        <div id="bullet-ui">
+            <button id="bullet-start">게임 시작</button>
+            <span id="bullet-timer">15</span>초 남음
+        </div>
+        <p id="bullet-result" class="hint hidden"></p>
+    </div>
+    
+    <!-- 문 모달 -->
+    <div id="door-modal" class="modal hidden">
+        <button class="close-btn">&times;</button>
+        <h2>탈출구</h2>
+        <p>지금까지 얻은 힌트를 조합하여 4자리 비밀번호를 입력하세요.</p>
+        <input type="text" id="password-input" maxlength="4" placeholder="****">
+        <button id="escape-btn">탈출 시도</button>
+    </div>
+
+    <!-- 탈출 성공 모달 -->
+    <div id="success-modal" class="modal hidden">
+        <h2>탈출 성공!</h2>
+        <p>축하합니다! 교실에서 무사히 탈출했습니다!</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

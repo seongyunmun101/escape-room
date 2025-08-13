@@ -1,0 +1,127 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Malgun Gothic', sans-serif;
+}
+
+#game-container {
+    width: 100%;
+    height: 100%;
+    background-image: url('bg01.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.clickable-area {
+    position: absolute;
+    border: 2px dashed rgba(255, 255, 255, 0);
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.clickable-area:hover {
+    border-color: #ff2222;
+    background-color: rgba(255, 0, 0, 0.25);
+    box-shadow: 0 0 10px 2px rgba(255,0,0,0.3);
+}
+
+/* 오브젝트 위치 설정 (화면 크기에 따라 %로 조정) */
+#clock-area { top: 15%; left: 46%; width: 7%; height: 13%; }
+#computer-area { top: 38%; left: 10%; width: 23%; height: 26%; }
+#chalkboard-area { top: 33%; left: 35%; width: 30%; height: 28%; }
+#desk-area { top: 65%; left: 5%; width: 90%; height: 30%; }
+#door-area { top: 25%; right: 0; width: 15%; height: 75%; }
+
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 100;
+    width: 350px;
+    text-align: center;
+}
+
+.modal h2 {
+    margin-top: 0;
+}
+
+.modal input[type="text"], .modal input[type="number"] {
+    width: 80%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.modal button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.modal button:hover {
+    background-color: #0056b3;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 50;
+}
+
+.hidden {
+    display: none;
+}
+
+.hint {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #e9f7ef;
+    border: 1px solid #a1d7b6;
+    border-radius: 5px;
+    color: #155724;
+}
+
+.small-text {
+    font-size: 12px;
+    color: #666;
+}
